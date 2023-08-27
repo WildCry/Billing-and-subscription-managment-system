@@ -1,6 +1,6 @@
 # Billing-and-subscription-managment-system
 
-This is a hobby project to futher hone my programming skills. Managing billing and subscriptions is a critical component for many businesses, especially SaaS (Software as a Service) companies. Building such a system will not only enhance your programming skills but also give you insights into the business side of software development.
+This is a hobby project to futher hone my programming skills. Managing billing and subscriptions is a critical component for many businesses, especially SaaS (Software as a Service) companies. Building such a system will not only enhance my programming skills but also give you insights into the business side of software development.
 
 Here's a more detailed breakdown of each stage, along with some considerations and I am taking:
 
