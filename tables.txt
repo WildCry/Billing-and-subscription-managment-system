@@ -1,0 +1,71 @@
+CREATE TABLE customer (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    invoice_to VARCHAR(255),
+    cc_to VARCHAR(255),
+    bdm INT,
+    csm INT,
+    FOREIGN KEY (bdm) REFERENCES employee(employee_id),
+    FOREIGN KEY (csm) REFERENCES employee(employee_id)
+);
+
+CREATE TABLE product (
+    product_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    description VARCHAR(255)
+);
+
+CREATE TABLE price_list (
+    year INT,
+    currency VARCHAR(255),
+    price REAL,
+    product_id INT,
+    PRIMARY KEY (year, currency),
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
+);
+
+CREATE TABLE subscription (
+    subscription_id INT PRIMARY KEY,
+    sign_date DATETIME,
+    contract_pdf BLOB,
+    contract_path VARCHAR(255),
+    currency VARCHAR(255)
+);
+
+CREATE TABLE invoice (
+    invoice_no VARCHAR(255) PRIMARY KEY,
+    invoice_pdf BLOB,
+    invoice_path VARCHAR(255),
+    invoice_date DATETIME,
+    due_date DATETIME,
+    license_start DATETIME,
+    license_end DATETIME,
+    license_duration REAL,
+    comment VARCHAR(255),
+    free_text VARCHAR(255)
+);
+
+CREATE TABLE employee (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(255),
+    full_name VARCHAR(255),
+    email VARCHAR(255),
+    phone VARCHAR(255)
+);
+
+CREATE TABLE reference (
+    reference_id INT PRIMARY KEY,
+    first_name VARCHAR(255),
+    full_name VARCHAR(255),
+    email VARCHAR(255),
+    phone VARCHAR(255)
+);
+
+CREATE TABLE reference_customer (
+    reference_id INT,
+    customer_id INT,
+    FOREIGN KEY (reference_id) REFERENCES reference(reference_id),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+PRAGMA foreign_keys = ON;
